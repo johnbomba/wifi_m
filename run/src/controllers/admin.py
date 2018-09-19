@@ -1,7 +1,8 @@
 #!usr/bin/env python3
 
 # pseudocode
-# primary function 
+
+# ! primary function 
 
 # function to start/ stop miner 
 
@@ -9,7 +10,7 @@
 
 # funtion to display total hash rate
 
-# secondary functions
+# ! secondary functions
 
 # function to display individual hash rate 
 
