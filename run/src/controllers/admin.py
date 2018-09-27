@@ -14,4 +14,5 @@
 
 # function to display individual hash rate 
 
+# more secondary shit
 
