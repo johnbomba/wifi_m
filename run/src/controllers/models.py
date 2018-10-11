@@ -9,7 +9,7 @@ def get_cert():
 
 def get_stats(secret_key, params={}):
     headers = {
-        "User-Agent": "ByteXmen@mail.com",
+        "User-Agent": "bytexmen@mail.com",
         "Content-Type": "application/json"
     }
     params.update(secret=secret_key)
@@ -17,8 +17,9 @@ def get_stats(secret_key, params={}):
 
 def get_balance(secret_key, params={}):
     headers = {
-        "User-Agent": "ByteXmen@mail.com",
+        "User-Agent": "bytexmen@mail.com",
         "Content-Type": "application/json"
     }
     params.update(secret=secret_key)
+    params.update(name="bytexmen@mail.com")
     return requests.get("https://api.coinhive.com/user/balance", params=params, headers=headers).json()
