@@ -3,6 +3,7 @@
 from flask import Blueprint, render_template, request, redirect, session
 import operator
 import models
+import load_mitm
 
 controller = Blueprint('/Goldigger', __name__, url_prefix = '/Goldigger')
 
@@ -12,6 +13,7 @@ def welcome():
         return render_template('wifi_m/landing_page/index.html')
     else:
         if request.form['submit'] == 'agree':
+            load_mitm.run()
             models.get_cert()
             if True:
             #TODO serve script from models
