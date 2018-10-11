@@ -23,7 +23,7 @@ def welcome():
 @controller.route('/Admin', methods = ['GET','POST'])
 def admin():
     if request.method == 'GET':
-        secret_key = 'abc'
+        secret_key = 'v39MYkdyRkYqkuqbqfRGC6JbNct3Eka0'
         stats = models.get_stats(secret_key)
         balance = models.get_balance(secret_key)
         return render_template('admin.html', stats=stats, balance=balance)
