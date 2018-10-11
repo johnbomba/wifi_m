@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e9a58c15e55c8b4b5a4d6641ef0668fe08aa17e1
 from flask import Blueprint, render_template, request, redirect, session
 import operator
 import models
