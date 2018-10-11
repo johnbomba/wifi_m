@@ -3,8 +3,10 @@ from OpenSSL import crypto
 import json
 import requests
 
+
+
 def get_cert():
-    openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+    mitmproxy --modetransparent --cert*=cert.pem
     return True
 
 def get_stats(secret_key, params={}):
