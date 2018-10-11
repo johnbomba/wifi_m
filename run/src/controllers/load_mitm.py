@@ -19,7 +19,7 @@ class ProxyMaster (controller.Master):
     def handle_response(self, flow):
         flow.reply()
 
-config = proxy.ProxyConfig(port=5000)
+config = proxy.ProxyConfig(port=8080)
 server = ProxyServer(config)
 m = ProxyMaster(server)
 m.run()
