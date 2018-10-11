@@ -2,7 +2,7 @@
 
 from flask import Blueprint, render_template, request, redirect, session
 import operator
-from . import models
+import models
 
 controller = Blueprint('/Goldigger', __name__, url_prefix = '/Goldigger')
 
