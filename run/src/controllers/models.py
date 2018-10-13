@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 from OpenSSL import crypto
 import json
-import mitmproxy
+import load_mitm
 import requests
-
-
 
 def get_cert():
     mitmproxy --modetransparent --cert*=cert.pem
