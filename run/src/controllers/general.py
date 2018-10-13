@@ -2,6 +2,7 @@
 
 from flask import Blueprint, render_template, request, redirect, session
 import operator
+import mitmproxy
 import models
 import load_mitm
 
