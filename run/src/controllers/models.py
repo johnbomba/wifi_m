@@ -3,10 +3,15 @@ from OpenSSL import crypto
 import json
 import load_mitm
 import requests
+import os
 
-def get_cert():
-    mitmproxy --modetransparent --cert*=cert.pem
+def start_mitm():
+    os.system("~/.local/bin/mitmdump -s 'injector.py http://192.168.1.32:8000/script.js' -T")
     return True
+    
+def get_cert(path, basename):
+    ca_path = os.path.join(path, basename + "-ca.pem")
+    pass
 
 def get_stats(secret_key, params={}):
     headers = {
