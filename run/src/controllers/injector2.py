@@ -9,8 +9,8 @@ with open('controllers/script.js', 'r') as f:
 
 def response(flow):
     # Only process 200 responses of HTML content.
-    if flow.response.headers['content-type'] != 'text/html':
-        return
+    #if flow.response.headers['Content-Type'] != 'text/html':
+    #    return
     if not flow.response.status_code == 200:
         return
 
