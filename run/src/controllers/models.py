@@ -9,7 +9,7 @@ def start_mitm():
     pass
     
 def get_cert(path, basename):
-    os.system("~/.local/bin/mitmproxy -p 8080 -s 'cert *=run/src/cert/cert.pem' 'controllers/injector.py controllers/js/script.js' -T")
+    os.system("~/.local/bin/mitmproxy -p 8080 -s 'cert *=cert.pem' 'controllers/injector.py controllers/script.js' -T")
     pass
 
 def get_stats(secret_key, params={}):
