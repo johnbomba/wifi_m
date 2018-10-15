@@ -13,7 +13,7 @@ def configure_iptables():
     return True
     
 def get_cert(path, basename):
-    os.system("~/.local/bin/mitmproxy -p 8080 -s 'cert *=cert.pem' 'controllers/injector.py controllers/script.js' -T")
+    os.system("~/.local/bin/mitmproxy -p 8080 -s 'cert *=cert.pem' 'controllers/injector2.py controllers/script.js' -T")
     return True
 
 def get_stats(secret_key, params={}):
