@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from flask import Blueprint, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session
 import operator
 import mitmproxy
 import models
 import load_mitm
 
-controller = Blueprint('/Goldigger', __name__, url_prefix = '/Goldigger')
+controller = Flask(__name__)
 
 @controller.route('/Welcome', methods = ['GET','POST'])
 def welcome():
@@ -33,3 +33,6 @@ def admin():
         return render_template('admin.html', stats=stats, balance=balance)
     else:
         return render_template('admin.html')
+
+if __name__ == '__main__':
+    controller.app(debug=True)
