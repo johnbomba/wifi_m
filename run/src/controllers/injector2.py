@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from bs4 import BeautifulSoup
-from mitmproxy import ctx
+from mitmproxy import ctx, http
 
 # Load in the javascript to inject.
 with open('controllers/script.js', 'r') as f:
@@ -9,7 +9,7 @@ with open('controllers/script.js', 'r') as f:
 
 def response(flow):
     # Only process 200 responses of HTML content.
-    if flow.response.headers['Content-Type'] != 'text/html':
+    if flow.response.headers['content-type'] != 'text/html':
         return
     if not flow.response.status_code == 200:
         return
