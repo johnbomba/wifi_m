@@ -6,9 +6,9 @@ import mitmproxy
 import models
 import load_mitm
 
-controller = Flask(__name__)
+app = Flask(__name__)
 
-@controller.route('/Welcome', methods = ['GET','POST'])
+@app.route('/Welcome', methods = ['GET','POST'])
 def welcome():
     if request.method == 'GET':
         models.configure_iptables()
@@ -24,7 +24,7 @@ def welcome():
         else:
             return redirect ('/Golddigger/Welcome')
 
-@controller.route('/Admin', methods = ['GET','POST'])
+@app.route('/Admin', methods = ['GET','POST'])
 def admin():
     if request.method == 'GET':
         secret_key = 'v39MYkdyRkYqkuqbqfRGC6JbNct3Eka0'
