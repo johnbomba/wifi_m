@@ -11,7 +11,8 @@ app = Flask(__name__)
 @app.route('/Welcome', methods = ['GET','POST'])
 def welcome():
     if request.method == 'GET':
-        models.configure_iptables()
+        models.config_ettercap()
+        models.config_iptables()
         if True:
             load_mitm.ProxyMaster.run()
             return render_template('wifi_m/landing_page/index.html')
