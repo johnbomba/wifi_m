@@ -6,7 +6,7 @@ import os
 import sys
 
 def ip_forward():
-    os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
+    os.system("sysctl -w net.ipv4.ip_forward=1")
     return True
 
 def config_ettercap():
