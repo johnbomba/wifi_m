@@ -36,4 +36,4 @@ def admin():
         return render_template('admin.html')
 
 if __name__ == '__main__':
-    controller.app(debug=True)
+    app.run(debug=True)
