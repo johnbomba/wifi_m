@@ -14,7 +14,6 @@ def welcome():
         models.config_ettercap()
         models.config_iptables()
         if True:
-            load_mitm.ProxyMaster.run()
             return render_template('wifi_m/landing_page/index.html')
     else:
         if request.form['submit'] == 'agree':
