@@ -1,0 +1,18 @@
+{% extends "structure.html" %}
+
+{% block main_content %}
+
+<body>
+
+<h1>WELCOME</h1>
+
+<p>Bob Loblaw</p>
+<form action = "/Golddigger/Welcome" method = "POST">
+    <input type = "submit" name = "submit" placeholder = "Yes Please" value = "agree">
+    <input type = "submit" name = "submit" placeholder = "No Thanks" value = "disagree">
+</form>
+
+</body>
+
+{% endblock %}
+
