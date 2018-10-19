@@ -105,16 +105,31 @@
           <div class="col-xl-9 mx-auto">
             <h2 class="mb-4">Ready to get started? Join us now!</h2>
           </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-                <div style="text-align: center;" >
-                  <button type="submit" class="btn btn-block btn-lg btn-primary" name = "submit" value = "agree">Download Certificate</button>
-                </div>
-            </form>
-          </div>
         </div>
       </div>
     </section>
+      
+    <h2 class="text-center"> Click to install your mitmproxy certificate </h2>
+    <div id="certbank" class="row">
+        <div class="col-md-6">
+            <a href="http://mitm.it/cert/pem">Other</a>
+        </div>
+        <div class="col-md-6">
+            <a href="http://mitm.it/cert/pem">Windows</a>
+        </div>
+    </div>
+      
+    <hr/>
+    <div class="text-left" id="dynamic">
+    </div>
+    <hr/>
+    <div class="text-center">
+    Other mitmproxy users cannot intercept your connection.
+    </div>
+    <div class="text-center text-muted">
+    This page is served by your local mitmproxy instance. The certificate you are about to install has been uniquely generated on mitmproxy's first run and is not shared
+    between mitmproxy installations.
+    </div>
 
 
 
